@@ -2,7 +2,7 @@
 起動するとウインドウが出てくるので  
 URLを入れてDLを押してください
 ※違法ダウンロードはだめです!!!!
-![](http://i.imgur.com/Jjwsc.jpg "サンプル")
+![window image](https://github.com/kenji176/Nyahentai_dl/blob/main/NVIDIA_Share_k3mJrcnwhr.png?raw=true "サンプル")
 
 ## モジュールのインストール
 
