@@ -1,2 +1,2 @@
 # Nyahentai_dl
-url to pdf
+URLを引数に渡すとPDFを作ってくれます、便利です
