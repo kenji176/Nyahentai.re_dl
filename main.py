@@ -64,7 +64,7 @@ button = ttk.Button(root, text="DL",command=lambda : callback(txt.get()))
 button.place(x=240, y=37)
 
 root.geometry('300x90')
-root.title('Nyahentai url')
+root.title('Nyahentai')
 sv_ttk.set_theme("dark")
 
 root.resizable(width=False, height=False)
