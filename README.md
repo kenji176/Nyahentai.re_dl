@@ -1,4 +1,4 @@
-# Nyahentai_dl
+# Nyahentai.re_dl
 起動するとウインドウが出てくるので  
 URLを入れてDLを押してください  
 ※違法ダウンロードはだめです!!!!  
