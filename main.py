@@ -6,9 +6,8 @@ import tkinter
 import img2pdf
 import requests
 from threading import Thread
-import threading
 from tkinter import ttk,messagebox
-from tqdm import tqdm
+from plyer import notification
 from PIL import Image
 from bs4 import BeautifulSoup
 
@@ -22,6 +21,7 @@ def Auto_Thread(func):
 
 @Auto_Thread
 def url_dl(url):
+    plabel.stop()
     if re.match("https://nyahentai.re/.*/.*/", url):
         if not (os.path.exists("./output")):
             os.mkdir(f"./output")
@@ -52,12 +52,26 @@ def url_dl(url):
                         im.save(bytes_output,format="JPEG")
                         bytes_images.append(bytes_output.getvalue())
                 f.write(img2pdf.convert(bytes_images))
-                messagebox.showinfo('成功', '保存が完了しました')
-                plabel.stop()
+                notification.notify(
+                title="成功",
+                message=f"{Title}\nの保存が完了しました",
+                app_name=f"Nyahentai_dl",
+                timeout=5
+                )
         except FileExistsError as e:
-            print(f"同じ名前のフォルダが存在します,削除するか名前を変更してください\n[{Title}]")
+            notification.notify(
+            title="失敗",
+            message="既に同じ名前のフォルダがあります",
+            app_name="Nyahentai_dl",
+            timeout=5
+            )
     else:
-        messagebox.showinfo('エラー', 'URLが間違っています')
+        notification.notify(
+        title="失敗",
+        message="URLが間違っています",
+        app_name="Nyahentai_dl",
+        timeout=5
+        )
         txt.delete(0,"end")
     return True
 
@@ -66,8 +80,8 @@ root = tkinter.Tk()
 txt = ttk.Entry(width=32)
 txt.place(x=20, y=37)
 
-lbl = ttk.Label(text='Nyahentao_url')
-lbl.place(x=20, y=12)
+lbl = ttk.Label(text='Nyahentai Url')
+lbl.place(x=20, y=13)
 
 button = ttk.Button(root, text="DL",command=lambda :url_dl(txt.get()))
 button.place(x=240, y=37)
