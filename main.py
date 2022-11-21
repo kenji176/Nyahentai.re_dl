@@ -5,11 +5,16 @@ import sv_ttk
 import tkinter
 import img2pdf
 import requests
+from threading import Thread
+import threading
 from tkinter import ttk,messagebox
 from tqdm import tqdm
 from PIL import Image
 from bs4 import BeautifulSoup
 
+def callback(event):
+    th = threading.Thread(target=url_dl, args=(event,))
+    th.start()
 
 def url_dl(url):
     if re.match("https://nyahentai.re/.*/.*/", url):
@@ -44,6 +49,7 @@ def url_dl(url):
     else:
         messagebox.showinfo('エラー', 'URLが間違っています')
         txt.delete(0,"end")
+    return True
 
 root = tkinter.Tk()
 
@@ -53,7 +59,7 @@ txt.place(x=20, y=37)
 lbl = ttk.Label(text='Nyahentao_url')
 lbl.place(x=20, y=12)
 
-button = ttk.Button(root, text="DL",command=lambda : url_dl(txt.get()))
+button = ttk.Button(root, text="DL",command=lambda : callback(txt.get()))
 button.place(x=240, y=37)
 
 root.geometry('300x90')
@@ -62,3 +68,5 @@ sv_ttk.set_theme("dark")
 
 
 root.mainloop()
+target=root.mainloop()
+
