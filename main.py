@@ -33,8 +33,8 @@ def url_dl(url):
             else:
                 img_url.append([img.get('src'),img.get('alt')])
         try:
-            file_name = re.sub(r'[\\|/|:|?|.|"|<|>|\|]', '-', f'./output/{Title}.pdf')
-            with open(file_name,"wb") as f:
+            file_name = re.sub(r'[\\|/|:|?|.|"|<|>|\|]', '-', f'{Title}')
+            with open(f'./output/{file_name}.pdf',"wb") as f:
                 for url in tqdm(img_url):
                     r = requests.get(url[0])
                     if r.status_code == 200:
