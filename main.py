@@ -2,8 +2,7 @@ import io
 import os
 import img2pdf
 import requests
-from tqdm import tqdm, trange
-from tqdm import *
+from tqdm import tqdm
 from PIL import Image
 from bs4 import BeautifulSoup
 
