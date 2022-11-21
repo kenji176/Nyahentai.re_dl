@@ -67,7 +67,6 @@ root.geometry('300x90')
 root.title('Nyahentai url')
 sv_ttk.set_theme("dark")
 
-
+root.resizable(width=False, height=False)
 root.mainloop()
-target=root.mainloop()
 
