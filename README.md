@@ -12,6 +12,7 @@ pip install beautifulsoup4
 pip install pillow
 pip install tqdm
 pip install sv-ttk
-pip install tkinter
+pip install tkinter  
+pip install plyer
 ```
 
